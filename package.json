@@ -1,0 +1,20 @@
+{
+    "name": "trackerjs",
+    "version": "1.0.0",
+    "description": "JS lib for user tracking (RD entry test)",
+    "main": "index.js",
+    "scripts": {
+        "dev": "./node_modules/.bin/webpack --devtool source-map ./src/main.js ./dist/tracker.bundle.js",
+        "test": "jest"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-jest": "^20.0.3",
+        "babel-loader": "^7.1.2",
+        "babel-preset-env": "^1.6.0",
+        "jest": "^20.0.4",
+        "webpack": "^3.5.5"
+    }
+}
