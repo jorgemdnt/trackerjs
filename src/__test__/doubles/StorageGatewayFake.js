@@ -1,18 +1,19 @@
 class StorageGatewayFake {
     constructor () {
-        this.pageViewsSaved = []
+        this.userId = null
+        this.pageViewsTracked = []
     }
 
-    savePageView(pageTitle, path, origin) {
-        this.pageViewsSaved.push({
-            pageTitle,
-            path,
-            origin
-        })
+    trackPageView(userId, properties) {
+        this.pageViewsTracked.push(properties)
     }
 
-    getPageViews () {
-        return this.pageViewsSaved
+    getPageViewsTracked () {
+        return this.pageViewsTracked
+    }
+
+    getUserId() {
+        return this.userId
     }
 }
 
