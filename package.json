@@ -1,7 +1,7 @@
 {
     "name": "trackerjs",
     "version": "1.0.0",
-    "description": "JS lib for user tracking (RD entry test)",
+    "description": "JS lib for user tracking",
     "main": "index.js",
     "scripts": {
         "dev": "./node_modules/.bin/webpack --devtool source-map ./src/main.js ./dist/tracker.bundle.js",

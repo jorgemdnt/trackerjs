@@ -5,6 +5,7 @@ class StorageGatewayFake {
     }
 
     trackPageView(userId, properties) {
+        this.userId = userId
         this.pageViewsTracked.push(properties)
     }
 

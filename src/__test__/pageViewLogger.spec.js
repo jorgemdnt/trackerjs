@@ -2,18 +2,16 @@ import StorageGatewayFake from './doubles/StorageGatewayFake'
 import pageViewLogger from '../pageViewLogger'
 
 jest.mock('uuid', () => ( { v4: jest.fn(() => 'USER_ID') } ))
+const TIMESTAMP = 'Sun Aug 27 2017 23:54:15 GMT-0300 (-03)'
+Date.prototype.toString = jest.fn(() => TIMESTAMP)
 
 describe('pageViewLogger', () => {
-    const PATHNAME = '/home/'
-    const ORIGIN = 'facebook.com'
-    const TITLE = 'Home'
+    const PATH = 'http://trackedpage.com'
     const EVENT = {
         target: {
             location: {
-                pathname: PATHNAME,
-                origin: ORIGIN
-            },
-            title: TITLE
+                path: PATH
+            }
         }
     }
     let storageGateway
@@ -25,10 +23,9 @@ describe('pageViewLogger', () => {
     test('Should track page view with new userId when user not tracked yet', () => {
         pageViewLogger(storageGateway)(EVENT)
 
-        expect(storageGateway.getPageViews()).toEqual([{ 
-            path: PATHNAME,
-            pageTitle: TITLE,
-            origin: ORIGIN
+        expect(storageGateway.getPageViewsTracked()).toEqual([{ 
+            path: PATH,
+            timestamp: TIMESTAMP
         }])
         expect(storageGateway.getUserId()).toEqual('USER_ID')
     })
@@ -36,9 +33,8 @@ describe('pageViewLogger', () => {
     test('Should use previous userId when user already tracked', () => {
         const expectedUserId = 'PREEXISTING_USER_ID'
         storageGateway.trackPageView(expectedUserId, { 
-            path: PATHNAME,
-            pageTitle: TITLE,
-            origin: ORIGIN
+            path: PATH,
+            timestamp: TIMESTAMP
         })
 
         pageViewLogger(storageGateway)(EVENT)
