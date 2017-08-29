@@ -1,11 +1,10 @@
 class StorageGatewayFake {
     constructor () {
-        this.userId = null
+        this.userEmail = null
         this.pageViewsTracked = []
     }
 
-    trackPageView(userId, properties) {
-        this.userId = userId
+    trackPageView(properties) {
         this.pageViewsTracked.push(properties)
     }
 
@@ -13,8 +12,12 @@ class StorageGatewayFake {
         return this.pageViewsTracked
     }
 
-    getUserId() {
-        return this.userId
+    setUserEmail(userEmail) {
+        this.userEmail = userEmail
+    }
+
+    getUserEmail(userEmail) {
+        return this.userEmail
     }
 }
 
