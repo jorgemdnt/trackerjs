@@ -1,5 +1,3 @@
-import { v4 } from 'uuid'
-
 const pageViewLogger = (storageGateway, trackerAPIGateway) => ({ target }) => {
     const userEmail = storageGateway.getUserEmail()
     const trackedPage = {

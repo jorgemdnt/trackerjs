@@ -1,8 +1,7 @@
-import StorageGatewayFake from './doubles/StorageGatewayFake'
-import TrackerAPIGatewayFake from './doubles/TrackerAPIGatewayFake'
-import pageViewLogger from '../pageViewLogger'
+import StorageGatewayFake from '../doubles/StorageGatewayFake'
+import TrackerAPIGatewayFake from '../doubles/TrackerAPIGatewayFake'
+import pageViewLogger from '../../core/pageViewLogger'
 
-jest.mock('uuid', () => ( { v4: jest.fn(() => 'USER_ID') } ))
 const TIMESTAMP = 'Sun Aug 27 2017 23:54:15 GMT-0300 (-03)'
 Date.prototype.toString = jest.fn(() => TIMESTAMP)
 
