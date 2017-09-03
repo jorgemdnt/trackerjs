@@ -2,21 +2,21 @@ import Cookies from 'js-cookie'
 import CookieStorageGateway from '../../gateways/CookieStorageGateway'
 
 
-var createCookie = (key, data) => {
+let createCookie = (key, data) => {
     document.cookie = key + "=" + JSON.stringify(data);
 }
 
-var getCookie = key => {
-    var re = new RegExp(key + "=([^;]+)");
-    var value = re.exec(document.cookie);
+let getCookie = key => {
+    let re = new RegExp(key + "=([^;]+)");
+    let value = re.exec(document.cookie);
     return (value != null) ? JSON.parse(unescape(value[1])) : null;
 }
 
 describe('CookieStorageGateway', () => {
     const PATH = 'http://trackedpage.com'
     const TIMESTAMP = 1504446923512
-    var gateway
-    var document
+    let gateway
+    let document
 
     beforeEach(() => {
         Cookies.remove('pageViewsTracked')
