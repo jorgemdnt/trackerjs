@@ -1,16 +1,6 @@
 import Cookies from 'js-cookie'
 import CookieStorageGateway from '../../gateways/CookieStorageGateway'
-
-
-let createCookie = (key, data) => {
-    document.cookie = key + "=" + JSON.stringify(data);
-}
-
-let getCookie = key => {
-    let re = new RegExp(key + "=([^;]+)");
-    let value = re.exec(document.cookie);
-    return (value != null) ? JSON.parse(unescape(value[1])) : null;
-}
+import { createCookie, getCookie } from '../utils'
 
 describe('CookieStorageGateway', () => {
     const PATH = 'http://trackedpage.com'
