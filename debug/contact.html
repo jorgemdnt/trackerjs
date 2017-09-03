@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <script src="../dist/tracker.bundle.js" charset="utf-8"></script>
+        <title>Debug</title>
+    </head>
+    <body>
+        <p>Contact</p>
+        <form id="user-identification">
+            <input type="email" name="email" />
+            <button type="submit">Submit</button>
+        </form>
+        <a href="/contact.html">Contact</a>
+        <a href="/price.html">Price</a>
+        <a href="/index.html">Home</a>
+
+        <script charset="utf-8">
+            document.getElementById("user-identification").addEventListener("submit", function(event) {
+                event.preventDefault()
+                let userEmail = event.target[0].value
+                trackerjs.identifyUser(userEmail)
+            })
+        </script>
+    </body>
+</html>

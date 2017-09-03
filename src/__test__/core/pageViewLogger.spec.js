@@ -1,16 +1,16 @@
 import StorageGatewayFake from '../doubles/StorageGatewayFake'
-import TrackerAPIGatewayFake from '../doubles/TrackerAPIGatewayFake'
+import TrackerAPIGatewaySpy from '../doubles/TrackerAPIGatewaySpy'
 import pageViewLogger from '../../core/pageViewLogger'
 
-const TIMESTAMP = 'Sun Aug 27 2017 23:54:15 GMT-0300 (-03)'
-Date.prototype.toString = jest.fn(() => TIMESTAMP)
+const TIMESTAMP = 1504446923512
+Date.now = jest.fn(() => TIMESTAMP)
 
 describe('pageViewLogger', () => {
     const PATH = 'http://trackedpage.com'
     const EVENT = {
         target: {
             location: {
-                path: PATH
+                href: PATH
             }
         }
     }
@@ -19,7 +19,7 @@ describe('pageViewLogger', () => {
 
     beforeEach(() => {
         storageGateway = new StorageGatewayFake()
-        trackerAPIGateway = new TrackerAPIGatewayFake()
+        trackerAPIGateway = new TrackerAPIGatewaySpy()
     })
 
     test('Should track page view in browser storage when user email not defined yet', () => {
@@ -37,10 +37,12 @@ describe('pageViewLogger', () => {
 
         pageViewLogger(storageGateway, trackerAPIGateway)(EVENT)
 
-        expect(trackerAPIGateway.pageViewsTracked).toEqual([{
-            path: PATH,
-            timestamp: TIMESTAMP
-        }])
-        expect(trackerAPIGateway.userEmail).toEqual(userEmail)
+        expect(trackerAPIGateway.spiedTrackPageView).toEqual({
+            userEmail,
+            properties: {
+                path: PATH,
+                timestamp: TIMESTAMP
+            }
+        })
     })
 })

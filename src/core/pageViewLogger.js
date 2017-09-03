@@ -1,8 +1,8 @@
 const pageViewLogger = (storageGateway, trackerAPIGateway) => ({ target }) => {
     const userEmail = storageGateway.getUserEmail()
     const trackedPage = {
-        path: target.location.path,
-        timestamp: new Date().toString()
+        path: target.location.href,
+        timestamp: Date.now()
     }
 
     if (userEmail)

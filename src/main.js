@@ -1,7 +1,11 @@
-import pageViewLogger from './core/pageViewLogger'
+import pageViewLoggerFactory from './factories/pageViewLoggerFactory'
 
-window.addEventListener('load', pageViewLogger)
-window.tracker = () => {
-    console.log('tracker func')
-    console.log(process.env.TRACKER_URL)
+window.addEventListener('load', pageViewLoggerFactory())
+window.trackerjs = {
+    identifyUser: email => console.log(email)
 }
+//document.getElementById('tracker-user-email-form').addEventListener('submit', event => {
+    //console.log('tracker func')
+    //console.log(event)
+    //console.log(process.env.TRACKER_URL)
+//})
