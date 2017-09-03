@@ -14,7 +14,7 @@ var getCookie = key => {
 
 describe('CookieStorageGateway', () => {
     const PATH = 'http://trackedpage.com'
-    const TIMESTAMP = 'Sun Aug 27 2017 23:54:15 GMT-0300 (-03)'
+    const TIMESTAMP = 1504446923512
     var gateway
     var document
 

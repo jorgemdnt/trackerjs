@@ -4,20 +4,25 @@
     "description": "JS lib for user tracking",
     "main": "index.js",
     "scripts": {
-        "dev": "./node_modules/.bin/webpack --devtool source-map ./src/main.js ./dist/tracker.bundle.js",
-        "test": "jest",
+        "debug": "TRACKER_URL='http://localhost:3000' webpack --config webpack-debug.config.js && http-server",
+        "production": "TRACKER_URL='http://localhost:3000' webpack --config webpack.config.js && http-server ./dist/",
+        "test": "TRACKER_URL='http://localhost:3000' jest",
         "test:watch": "jest --watch"
     },
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "axios-mock-adapter": "^1.9.0",
         "babel-core": "^6.26.0",
         "babel-jest": "^20.0.3",
         "babel-loader": "^7.1.2",
         "babel-preset-env": "^1.6.0",
+        "http-server": "^0.10.0",
         "jest": "^20.0.4",
         "js-cookie": "^2.1.4",
         "webpack": "^3.5.5"
     },
-    "dependencies": {}
+    "dependencies": {
+        "axios": "^0.16.2"
+    }
 }

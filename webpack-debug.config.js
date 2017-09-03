@@ -4,7 +4,7 @@ var path = require('path');
 module.exports = {
     entry: './src/main.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'public/dist/'),
         filename: 'tracker.bundle.js'
     },
     module: {
