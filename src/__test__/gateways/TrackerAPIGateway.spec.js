@@ -25,7 +25,7 @@ describe('TrackerAPIGateway', () => {
 
         test('Should send page view info to tracker servers', async () => {
             axiosMock
-                .onPost(process.env.TRACKER_URL + 'api/v1/page_views', {
+                .onPost(process.env.TRACKER_URL + '/api/v1/page_views', {
                     email: EMAIL,
                     path: PROPERTIES.path,
                     timestamp: PROPERTIES.timestamp
@@ -49,7 +49,7 @@ describe('TrackerAPIGateway', () => {
 
         test('Should send user email along browser-stored page views', async () => {
             axiosMock
-                .onPost(process.env.TRACKER_URL + 'api/v1/users', {
+                .onPost(process.env.TRACKER_URL + '/api/v1/users', {
                     email: EMAIL, page_views: PAGE_VIEWS_STORED
                 })
                 .reply(201)

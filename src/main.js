@@ -1,8 +1,9 @@
+import identifyUserFactory from './factories/identifyUserFactory'
 import pageViewLoggerFactory from './factories/pageViewLoggerFactory'
 
 window.addEventListener('load', pageViewLoggerFactory())
 window.trackerjs = {
-    identifyUser: email => console.log(email)
+    identifyUser: identifyUserFactory()
 }
 //document.getElementById('tracker-user-email-form').addEventListener('submit', event => {
     //console.log('tracker func')
