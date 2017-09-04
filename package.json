@@ -7,7 +7,7 @@
         "heroku-prebuild": "yarn",
         "build": "TRACKER_URL='https://trackerrr.herokuapp.com/' node_modules/webpack/bin/webpack.js --config webpack.config.js ",
         "debug": "TRACKER_URL='http://localhost:3000' node_modules/webpack/bin/webpack.js --config webpack-debug.config.js && http-server ./debug/",
-        "start": "./node_modules/http-server/bin/http-server ./dist/",
+        "start": "./node_modules/.bin/http-server ./dist/",
         "test": "TRACKER_URL='http://localhost:3000' jest",
         "test:watch": "jest --watch"
     },
