@@ -5,8 +5,9 @@
     "main": "index.js",
     "scripts": {
         "heroku-prebuild": "yarn",
-        "debug": "TRACKER_URL='http://localhost:3000' webpack --config webpack-debug.config.js && http-server ./debug/",
-        "start": "TRACKER_URL='https://trackerrr.herokuapp.com/' webpack --config webpack.config.js && http-server ./dist/",
+        "build": "TRACKER_URL='https://trackerrr.herokuapp.com/' node_modules/webpack/bin/webpack.js --config webpack.config.js ",
+        "debug": "TRACKER_URL='http://localhost:3000' node_modules/webpack/bin/webpack.js --config webpack-debug.config.js && http-server ./debug/",
+        "start": "http-server ./dist/",
         "test": "TRACKER_URL='http://localhost:3000' jest",
         "test:watch": "jest --watch"
     },
