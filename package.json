@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "debug": "TRACKER_URL='http://localhost:3000' webpack --config webpack-debug.config.js && http-server ./debug/",
-        "production": "TRACKER_URL='https://trackerrr.herokuapp.com/' webpack --config webpack.config.js && http-server ./dist/",
+        "start": "TRACKER_URL='https://trackerrr.herokuapp.com/' webpack --config webpack.config.js && http-server ./dist/",
         "test": "TRACKER_URL='http://localhost:3000' jest",
         "test:watch": "jest --watch"
     },
