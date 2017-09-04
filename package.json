@@ -4,6 +4,7 @@
     "description": "JS lib for user tracking",
     "main": "index.js",
     "scripts": {
+        "heroku-prebuild": "yarn",
         "debug": "TRACKER_URL='http://localhost:3000' webpack --config webpack-debug.config.js && http-server ./debug/",
         "start": "TRACKER_URL='https://trackerrr.herokuapp.com/' webpack --config webpack.config.js && http-server ./dist/",
         "test": "TRACKER_URL='http://localhost:3000' jest",
