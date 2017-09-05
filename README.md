@@ -1,3 +1,5 @@
+[![Heroku](https://heroku-badge.herokuapp.com/?app=trackerjs)](https://trackerjs.herokuapp.com/)
+
 # trackerjs
 JavaScript library for tracking user page views on a website/landingpage.
 
